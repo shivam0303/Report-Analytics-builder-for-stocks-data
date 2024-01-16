@@ -5,6 +5,7 @@ import Data from "./pages/data/Data";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProfileForm from "./pages/profile/ProfileForm";
 import CalendarPage from "./pages/calendar/CalendarPage";
+import AboutPage from "./pages/about/AboutPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/data" component={Data} />
           <Route path="/form" component={ProfileForm} /> 
           <Route path="/calendar" component={CalendarPage} />
+          <Route path="/about" component={AboutPage} />
         </Switch>
       </div>
     </Router>
