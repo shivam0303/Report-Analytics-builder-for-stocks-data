@@ -6,10 +6,10 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import DataUsageOutlinedIcon from "@mui/icons-material/DataUsageOutlined"; 
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import InfoIcon from '@mui/icons-material/Info';
 import userImg from "../../assets/user.jpg";
+import { useSelector } from "react-redux";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   return (
@@ -28,6 +28,10 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const MySidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+
+  //get user from redux store
+  const user = useSelector((state) => state.profileData);
+  console.log(user);
 
   return (
     <Box
@@ -84,10 +88,11 @@ const MySidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Shivam
+                  {user.name ? user.name : "User"}
+
                 </Typography>
                 <Typography variant="h5">
-                  Stock Trader
+                  {user.profession ? user.profession : "Profession"}
                 </Typography>
               </Box>
             </Box>
@@ -131,26 +136,14 @@ const MySidebar = () => {
               setSelected={setSelected}
             />
 
-            <Typography
-              variant="h6"
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Charts
-            </Typography>
             <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
+              title="About"
+              to="/about"
+              icon={<InfoIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Line Chart"
-              to="/line"
-              icon={<TimelineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+
           </Box>
         </Menu>
       </Sidebar>

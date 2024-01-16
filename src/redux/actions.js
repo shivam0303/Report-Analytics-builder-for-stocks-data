@@ -4,3 +4,16 @@ export const setCardData = (data) => {
         payload: data,
     };
 };
+
+export const setMetaData = (data) => {
+    return {
+        type: 'SET_META_DATA',
+        payload: data,
+    };
+};
+
+export const setProfileData = (profileData) => ({
+  type: "SET_PROFILE_DATA",
+  payload: profileData,
+});
+

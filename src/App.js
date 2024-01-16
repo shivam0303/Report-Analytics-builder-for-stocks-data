@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./pages/sidebar/Sidebar";
 import Data from "./pages/data/Data";
 import Dashboard from "./pages/dashboard/Dashboard";
-// import ProfileForm from "./pages/profile/ProfileForm";
-// import CalendarPage from "./pages/calendar/CalendarPage";
-// import BarChart from "./pages/charts/BarChart";
-// import LineChart from "./pages/charts/LineChart";
+import ProfileForm from "./pages/profile/ProfileForm";
+import CalendarPage from "./pages/calendar/CalendarPage";
 
 function App() {
   return (
@@ -16,10 +14,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Dashboard} />
           <Route path="/data" component={Data} />
-          {/* <Route path="/form" component={ProfileForm} />
+          <Route path="/form" component={ProfileForm} /> 
           <Route path="/calendar" component={CalendarPage} />
-          <Route path="/bar" component={BarChart} />
-          <Route path="/line" component={LineChart} /> */}
         </Switch>
       </div>
     </Router>
