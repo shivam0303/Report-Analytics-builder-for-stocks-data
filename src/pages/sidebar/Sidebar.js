@@ -3,6 +3,7 @@ import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import DataUsageOutlinedIcon from "@mui/icons-material/DataUsageOutlined"; 
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
@@ -11,43 +12,37 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import userImg from "../../assets/user.jpg";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
-
   return (
-    <MenuItem
-      active={selected === title}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
+    <Link to={to} style={{ textDecoration: 'none' }}>
+      <MenuItem
+        active={selected === title}
+        onClick={() => setSelected(title)}
+        icon={icon}
+      >
+        <Typography>{title}</Typography>
+      </MenuItem>
+    </Link>
   );
 };
 
 const MySidebar = () => {
-  
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
     <Box
       sx={{
-        "& .pro-sidebar-inner": {
-        },
-        "& .pro-icon-wrapper": {
-        },
+        "& .pro-sidebar-inner": {},
+        "& .pro-icon-wrapper": {},
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
         },
-        "& .pro-inner-item:hover": {
-        },
-        "& .pro-menu-item.active": {
-        },
+        "& .pro-inner-item:hover": {},
+        "& .pro-menu-item.active": {},
       }}
     >
       <Sidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -103,6 +98,14 @@ const MySidebar = () => {
               title="Dashboard"
               to="/"
               icon={<HomeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Data"
+              to="/data"
+              icon={<DataUsageOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
