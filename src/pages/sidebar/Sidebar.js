@@ -31,7 +31,7 @@ const MySidebar = () => {
 
   //get user from redux store
   const user = useSelector((state) => state.profileData);
-  console.log(user);
+  // console.log(user);
 
   return (
     <Box
